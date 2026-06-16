@@ -2,7 +2,7 @@
 
 Aplicação web full stack para gerenciar sua lista pessoal de filmes assistidos, agora com **autenticação JWT**, **PostgreSQL** e pronta para **deploy em produção**.
 
-**Trabalho Acadêmico — Ciência da Computação**
+**Programação para Internet — Ciência da Computação**
 
 ---
 

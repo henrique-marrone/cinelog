@@ -48,7 +48,7 @@ if vercel_url:
 # Mude para este código temporariamente para testar
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ISSO LIBERA TUDO. Se funcionar, o problema é o filtro da variável.
+    allow_origins=FRONTEND_URLS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

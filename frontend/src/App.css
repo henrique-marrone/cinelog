@@ -1,0 +1,512 @@
+/* ════════════════════════════════════════════════════
+   CineLog V2 — Estilos Globais
+   Fonte: Bebas Neue (títulos) + DM Sans (corpo)
+   Paleta: fundo escuro cinematográfico, acento âmbar
+   ════════════════════════════════════════════════════ */
+
+/* ── Variáveis CSS ──────────────────────────────── */
+:root {
+  --bg-base:       #0d0f14;
+  --bg-surface:    #161a23;
+  --bg-card:       #1d2130;
+  --bg-hover:      #252a3a;
+  --accent:        #f5a623;
+  --accent-dark:   #c47d0e;
+  --accent-light:  #ffc55a;
+  --text-primary:  #eef0f5;
+  --text-secondary:#8c93a8;
+  --text-muted:    #555e78;
+  --border:        #2a3047;
+  --border-focus:  #f5a623;
+  --danger:        #e05252;
+  --danger-dark:   #b83c3c;
+  --success:       #3cba6f;
+  --success-dark:  #2e9558;
+  --nota-alta:     #3cba6f;
+  --nota-media:    #f5a623;
+  --nota-baixa:    #e05252;
+  --radius:        12px;
+  --radius-sm:     8px;
+  --shadow:        0 4px 24px rgba(0,0,0,0.45);
+  --shadow-sm:     0 2px 8px rgba(0,0,0,0.3);
+  --transition:    0.2s ease;
+}
+
+/* ── Reset ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Layout raiz ────────────────────────────────── */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, #0d0f14 0%, #1a1e2e 100%);
+  border-bottom: 2px solid var(--accent);
+  padding: 1.5rem 1.25rem 1.25rem;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Linha topo do header: logo + info do usuário */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-icon { font-size: 2rem; }
+
+.logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: 3px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.header-sub {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* Info do usuário logado + botão Sair */
+.header-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.usuario-email {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-sair {
+  background: rgba(224,82,82,0.1);
+  border: 1px solid rgba(224,82,82,0.3);
+  border-radius: var(--radius-sm);
+  color: var(--danger);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  transition: background var(--transition);
+}
+
+.btn-sair:hover { background: rgba(224,82,82,0.22); }
+
+/* ── Alerta ─────────────────────────────────────── */
+.alerta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.alerta-sucesso {
+  background: rgba(60, 186, 111, 0.12);
+  border: 1px solid var(--success);
+  color: #7de8a8;
+}
+
+.alerta-erro {
+  background: rgba(224, 82, 82, 0.12);
+  border: 1px solid var(--danger);
+  color: #f08c8c;
+}
+
+/* ── Card do Formulário ─────────────────────────── */
+.form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 1.4rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.form-group input {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(245,166,35,0.15);
+}
+
+.form-group input::placeholder { color: var(--text-muted); }
+
+/* ── Botões ─────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  padding: 0.65rem 1.4rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+}
+
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn:not(:disabled):active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #0d0f14;
+}
+
+.btn-primary:not(:disabled):hover { background: var(--accent-light); }
+
+/* Variante full-width para formulários de auth */
+.btn-full { width: 100%; }
+
+.btn-secondary {
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:not(:disabled):hover {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* ── Tabela ─────────────────────────────────────── */
+.tabela-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.tabela-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabela-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+}
+
+.tabela-contador {
+  background: rgba(245,166,35,0.12);
+  border: 1px solid rgba(245,166,35,0.3);
+  border-radius: 20px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.85rem;
+}
+
+.tabela-scroll { overflow-x: auto; }
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela thead tr { background: var(--bg-surface); }
+
+.tabela th {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tabela-linha {
+  border-top: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.tabela-linha:hover { background: var(--bg-hover); }
+
+.tabela td {
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+}
+
+.col-index   { color: var(--text-muted); font-size: 0.82rem; width: 40px; }
+.col-titulo  { font-weight: 600; }
+.col-diretor { color: var(--text-secondary); }
+.col-ano     { color: var(--text-secondary); white-space: nowrap; }
+
+/* Badges de nota */
+.badge-nota {
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+}
+
+.nota-alta  { background: rgba(60,186,111,0.15); color: var(--nota-alta);  border: 1px solid rgba(60,186,111,0.3); }
+.nota-media { background: rgba(245,166,35,0.15); color: var(--nota-media); border: 1px solid rgba(245,166,35,0.3); }
+.nota-baixa { background: rgba(224,82,82,0.15);  color: var(--nota-baixa); border: 1px solid rgba(224,82,82,0.3);  }
+
+/* Estrelas */
+.estrelas {
+  color: var(--accent);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+/* Botões de ação na tabela */
+.col-acoes {
+  display: flex;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.btn-acao {
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-acao:active { transform: scale(0.95); }
+
+.btn-editar {
+  background: rgba(245,166,35,0.12);
+  border: 1px solid rgba(245,166,35,0.3);
+  color: var(--accent);
+}
+
+.btn-editar:hover { background: rgba(245,166,35,0.25); }
+
+.btn-remover {
+  background: rgba(224,82,82,0.1);
+  border: 1px solid rgba(224,82,82,0.3);
+  color: var(--danger);
+}
+
+.btn-remover:hover { background: rgba(224,82,82,0.22); }
+
+/* ── Estado vazio / carregando ──────────────────── */
+.estado-vazio {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 3.5rem 1rem;
+  text-align: center;
+}
+
+.estado-icone { font-size: 3rem; }
+.estado-titulo { color: var(--text-primary); font-size: 1.05rem; font-weight: 600; }
+.estado-subtitulo { color: var(--text-muted); font-size: 0.88rem; }
+
+/* ── Rodapé ─────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+/* ════════════════════════════════════════════════════
+   ESTILOS DE AUTENTICAÇÃO (novos na V2)
+   ════════════════════════════════════════════════════ */
+
+/* Página de login / registro — ocupa toda a tela */
+.auth-page {
+  align-items: center;
+  background: var(--bg-base);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1.25rem;
+}
+
+/* Card central de autenticação */
+.auth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 420px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+}
+
+/* Logo dentro do card de auth */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.auth-subtitle {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+/* Link de alternância (login ↔ register) */
+.auth-link {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+/* Botão inline estilizado como link */
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: underline;
+  transition: color var(--transition);
+}
+
+.link-btn:hover { color: var(--accent-light); }
+
+/* ── Responsividade ─────────────────────────────── */
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; }
+  .form-actions { flex-direction: column; }
+  .logo-text { font-size: 2rem; }
+  .header-top { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .usuario-email { max-width: 100%; }
+
+  .tabela th:nth-child(3),
+  .tabela td:nth-child(3),
+  .tabela th:nth-child(6),
+  .tabela td:nth-child(6) { display: none; }
+
+  .col-acoes { flex-direction: column; }
+}

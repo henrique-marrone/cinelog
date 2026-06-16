@@ -1,0 +1,36 @@
+# ─────────────────────────────────────────────
+# DEPENDÊNCIAS DO BACK-END — CineLog API V2
+# ─────────────────────────────────────────────
+
+# Framework web assíncrono principal
+fastapi==0.115.5
+
+# Servidor ASGI — executa a aplicação FastAPI
+uvicorn[standard]==0.32.1
+
+# ORM para mapear classes Python para tabelas SQL
+sqlalchemy==2.0.36
+
+# Validação e serialização de dados (schemas Pydantic)
+pydantic==2.10.2
+
+# Validação de e-mail nos schemas Pydantic
+pydantic[email]==2.10.2
+
+# ── Banco de dados ──────────────────────────────
+
+# Driver PostgreSQL para SQLAlchemy (substitui SQLite)
+psycopg2-binary==2.9.10
+
+# ── Autenticação ────────────────────────────────
+
+# Hash de senhas com bcrypt
+passlib[bcrypt]==1.7.4
+
+# Geração e validação de JWT
+python-jose[cryptography]==3.3.0
+
+# ── Variáveis de ambiente ───────────────────────
+
+# Carrega variáveis do arquivo .env
+python-dotenv==1.0.1

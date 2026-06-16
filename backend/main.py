@@ -33,19 +33,26 @@ app = FastAPI(
 # ─────────────────────────────────────────────────────────────
 
 # A variável FRONTEND_URL pode ser definida no Render para apontar à URL da Vercel
-FRONTEND_URLS = ["http://localhost:5173"]
+
+# Lista base de origens permitidas (incluindo versões com/sem porta para dev)
+FRONTEND_URLS = ["http://localhost:5173", "http://localhost:5174"] 
+
+# Adiciona a URL do Vercel caso ela esteja definida nas variáveis de ambiente
 vercel_url = os.getenv("FRONTEND_URL")
 if vercel_url:
-    FRONTEND_URLS.append(vercel_url)
+    # Remove barras extras no final caso existam e adiciona à lista
+    clean_vercel_url = vercel_url.rstrip('/')
+    if clean_vercel_url not in FRONTEND_URLS:
+        FRONTEND_URLS.append(clean_vercel_url)
 
+# Mude para este código temporariamente para testar
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=FRONTEND_URLS,
+    allow_origins=["*"],  # ISSO LIBERA TUDO. Se funcionar, o problema é o filtro da variável.
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # ─────────────────────────────────────────────────────────────
 # ROTAS DE AUTENTICAÇÃO

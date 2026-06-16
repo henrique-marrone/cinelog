@@ -1,25 +1,13 @@
-# Python
-__pycache__/
-*.pyc
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
 
-# Banco local
-*.db
+# Backend
+backend/.env
+backend/__pycache__/
+backend/*.pyc
 
-# Ambiente virtual
-venv/
-.venv/
-
-# Variáveis de ambiente
+# Geral
 .env
-
-# Node
-node_modules/
-
-# Build
-dist/
-
-# VSCode
 .vscode/
-
-# Sistema
-.DS_Store
